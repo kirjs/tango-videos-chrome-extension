@@ -11,7 +11,8 @@
     "icons/*.png"
   ],
   "permissions": [
-    "tabs"
+    "tabs",
+    "https://localhost:8084/*"
   ],
   "content_scripts": [
     {
