@@ -1,0 +1,8 @@
+{
+  "name": "tango-videos-chrome-extension/",
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}
