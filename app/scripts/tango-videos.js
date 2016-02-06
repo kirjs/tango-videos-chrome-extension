@@ -18,7 +18,7 @@ function init() {
     var videoService = new VideoService('https://localhost:8084/api/');
 
     function getNewVideoIds(ids) {
-        return new Promise(function (resolve, reject) {
+        return new Promise(function (resolve) {
             videoService.exists(ids).then((response) => {
                 response.json().then((existingIds) => {
                     var existingIdsMap = existingIds.reduce((result, id)=> {
@@ -36,7 +36,7 @@ function init() {
                         return result;
                     }, {}));
                 });
-            }, (error) => {
+            }, () => {
                 debugger
             });
         });
@@ -90,7 +90,7 @@ function init() {
                 newContainers.map(function (container) {
                     var id = extractId(container);
                     if(result[id] === false){
-                        container.appendChild(newAddButton(id))
+                        container.appendChild(newAddButton(id));
                         container.style.position = 'relative';
 
                     }
