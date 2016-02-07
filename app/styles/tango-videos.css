@@ -1,3 +1,19 @@
 .tango-videos-container {
     border: 2px green solid;
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    background: #fff;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 25px;
+}
+
+.tango-videos-container:hover {
+    box-shadow: 4px 4px 4px #bbb;
+    margin-top: -1px;
+    margin-left: -1px;
+    cursor: pointer;
 }

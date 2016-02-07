@@ -6,7 +6,13 @@ class VideoService {
         return fetch(this.base + 'videos/exist/' + ids.join(','));
     }
     add(id){
-        console.log("Adding video with ID", id);
+        return fetch(this.base + 'videos/add', {
+            method: 'post',
+            body: 'id=' + id,
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
+        })
     }
     constructor(base) {
         this.base = base;
@@ -67,13 +73,16 @@ function init() {
 
     function newAddButton(id){
         var span = document.createElement("span");
+        span.classList.add('tango-videos-container');
         span.innerHTML = 'AT+';
-        span.style.position = 'absolute';
-        span.style.left = '0';
-        span.style.top = '0';
-        span.style.background = '#fff';
         span.onclick = function () {
-            videoService.add(id);
+            span.innerHTML = '...';
+            videoService.add(id).then(()=>{
+                span.innerHTML = 'Added';
+                span.style.display = 'none';
+            }, () => {
+                span.innerHTML = 'Error';
+            });
             event.stopPropagation();
             event.stopImmediatePropagation();
             event.preventDefault();
