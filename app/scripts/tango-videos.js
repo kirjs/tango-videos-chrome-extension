@@ -8,9 +8,9 @@ class VideoService {
     add(id){
         return fetch(this.base + 'videos/add', {
             method: 'post',
-            body: 'id=' + id,
+            body: JSON.stringify({id: id}),
             headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
+                "Content-Type": "application/json"
             }
         })
     }
